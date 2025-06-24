@@ -1,238 +1,230 @@
-import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
+import React from 'react'
+import { Card } from './ui/card'
 import { Badge } from './ui/badge'
+import { Button } from './ui/button'
 import { 
-  Search, 
+  Search,
   Thermometer, 
-  Lightbulb, 
-  Wind, 
-  Shield,
-  ArrowRight,
-  DollarSign,
-  Cpu,
   Zap,
-  Activity,
-  BarChart3,
-  Award
+  Home,
+  Wind,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  DollarSign
 } from 'lucide-react'
 
-const services = [
-  {
-    icon: Search,
-    title: "AI Energy Audits",
-    description: "Advanced machine learning algorithms analyze your home's energy patterns with unprecedented precision.",
-    features: ["Thermal AI Imaging", "IoT Sensor Network", "Predictive Analytics", "Carbon Footprint Analysis"],
-    price: "From $500",
-    badge: "Most Advanced",
-    savings: "Up to 40% efficiency gain",
-    color: "green",
-    tech: "AI-Powered"
-  },
-  {
-    icon: Thermometer,
-    title: "Smart Heat Pumps",
-    description: "Next-generation heat pump systems with intelligent climate control and adaptive learning.",
-    features: ["Variable Speed Technology", "Smart Grid Integration", "Geothermal Options", "Remote Monitoring"],
-    price: "From $4,500",
-    badge: "Up to $7,100 Rebate",
-    savings: "$3,200 annual savings",
-    color: "blue",
-    tech: "Smart Technology"
-  },
-  {
-    icon: Cpu,
-    title: "Smart Insulation Systems",
-    description: "Engineered insulation solutions with integrated sensors for optimal thermal performance.",
-    features: ["Phase-Change Materials", "Vapor Barrier Tech", "Thermal Bridging Solutions", "Air Sealing Systems"],
-    price: "From $1,800",
-    badge: "Quick ROI",
-    savings: "25% heat loss reduction",
-    color: "purple",
-    tech: "Nano-Materials"
-  },
-  {
-    icon: Wind,
-    title: "Intelligent Ventilation",
-    description: "Smart ventilation systems with air quality monitoring and automated climate control.",
-    features: ["AI Air Quality Control", "Energy Recovery Systems", "Smart Filtration", "Mobile App Control"],
-    price: "From $2,800",
-    badge: "Health + Efficiency",
-    savings: "35% energy reduction",
-    color: "cyan",
-    tech: "IoT Connected"
-  },
-  {
-    icon: Lightbulb,
-    title: "Home Automation Hub",
-    description: "Comprehensive smart home integration for maximum energy efficiency and convenience.",
-    features: ["Unified Control System", "Learning Algorithms", "Energy Optimization", "Voice Integration"],
-    price: "From $1,200",
-    badge: "Future-Ready",
-    savings: "20% total home savings",
-    color: "orange",
-    tech: "ML-Driven"
-  },
-  {
-    icon: Activity,
-    title: "Predictive Maintenance",
-    description: "Proactive system monitoring with AI-driven maintenance scheduling and optimization.",
-    features: ["Predictive Analytics", "Remote Diagnostics", "Automated Scheduling", "Performance Optimization"],
-    price: "From $200/year",
-    badge: "Always Optimized",
-    savings: "Prevent 90% of issues",
-    color: "emerald",
-    tech: "Predictive AI"
-  }
-]
-
 export function Services() {
-  const [selectedService, setSelectedService] = useState(0)
+  const services = [
+    {
+      icon: Search,
+      title: 'Comprehensive Energy Audit',
+      description: 'Complete assessment of your home\'s energy performance with thermal imaging and blower door testing.',
+      features: [
+        'Thermal imaging analysis',
+        'Blower door pressure testing',
+        'Detailed efficiency report',
+        'Rebate qualification assessment'
+      ],
+      price: 'Starting at $299',
+      popular: true
+    },
+    {
+      icon: Thermometer,
+      title: 'Heat Pump Installation',
+      description: 'Modern, efficient heating and cooling systems that can reduce energy costs by up to 50%.',
+      features: [
+        'High-efficiency heat pumps',
+        'Smart thermostat integration',
+        'Professional installation',
+        'Warranty & maintenance'
+      ],
+      price: 'From $8,000',
+      popular: false
+    },
+    {
+      icon: Home,
+      title: 'Insulation Upgrade',
+      description: 'Advanced insulation solutions to improve comfort and reduce energy waste year-round.',
+      features: [
+        'Attic & wall insulation',
+        'Air sealing services',
+        'Moisture barrier installation',
+        'Ventilation optimization'
+      ],
+      price: 'Starting at $2,500',
+      popular: false
+    },
+    {
+      icon: Wind,
+      title: 'Ventilation Systems',
+      description: 'Energy recovery ventilation systems that maintain air quality while minimizing energy loss.',
+      features: [
+        'HRV/ERV installation',
+        'Ductwork optimization',
+        'Air quality monitoring',
+        'Filter maintenance programs'
+      ],
+      price: 'From $3,500',
+      popular: false
+    },
+    {
+      icon: Zap,
+      title: 'Smart Home Integration',
+      description: 'Connect and optimize your home systems with intelligent automation and monitoring.',
+      features: [
+        'Smart thermostats',
+        'Energy monitoring systems',
+        'Automated controls',
+        'Mobile app integration'
+      ],
+      price: 'Starting at $1,200',
+      popular: false
+    },
+    {
+      icon: Settings,
+      title: 'Maintenance & Support',
+      description: 'Ongoing service plans to keep your systems running at peak efficiency.',
+      features: [
+        'Annual system tune-ups',
+        'Priority service calls',
+        'Performance monitoring',
+        'Extended warranties'
+      ],
+      price: 'From $199/year',
+      popular: false
+    }
+  ]
 
   return (
-    <section id="services" className="py-24 relative">
-      <div className="container relative z-10">
-        <div className="text-center space-y-6 mb-20">
-          <div className="inline-flex items-center space-x-2 glass-card px-4 py-2 border-glow">
-            <Zap className="h-4 w-4 text-green-400" />
-            <span className="text-green-400 font-medium">Advanced Solutions</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-            <span className="gradient-text">Revolutionary</span> Energy Systems
+    <section id="services" className="section-padding bg-white">
+      <div className="container">
+        <div className="text-center mb-16">
+          <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 mb-4">
+            Our Services
+          </Badge>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Complete Energy Solutions for Your Home
           </h2>
-          
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Experience the future of home energy with our cutting-edge technology stack. 
-            AI-driven solutions that learn, adapt, and optimize your home's performance.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From initial assessment to ongoing maintenance, we provide comprehensive 
+            energy services designed to maximize your home's efficiency and comfort.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className={`relative group glass-card border-glow transition-all duration-500 cursor-pointer ${
-                selectedService === index ? 'neon-glow scale-105' : 'hover:border-green-400/30'
-              }`}
-              onClick={() => setSelectedService(index)}
-            >
-              {service.badge && (
-                <div className="absolute -top-3 left-6 z-10">
-                  <Badge className={`
-                    ${service.color === 'green' ? 'bg-green-500/20 text-green-400 border-green-500/30' : ''}
-                    ${service.color === 'blue' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' : ''}
-                    ${service.color === 'purple' ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' : ''}
-                    ${service.color === 'cyan' ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30' : ''}
-                    ${service.color === 'orange' ? 'bg-orange-500/20 text-orange-400 border-orange-500/30' : ''}
-                    ${service.color === 'emerald' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : ''}
-                    px-3 py-1 font-medium glass-card
-                  `}>
-                    {service.badge}
-                  </Badge>
-                </div>
+            <Card key={index} className={`p-8 card-shadow hover:card-shadow-lg transition-all duration-300 relative ${
+              service.popular ? 'ring-2 ring-green-500' : ''
+            }`}>
+              {service.popular && (
+                <Badge className="absolute -top-3 left-6 bg-green-600 text-white">
+                  Most Popular
+                </Badge>
               )}
               
-              <CardHeader className="text-center pb-4">
-                <div className="relative mb-4">
-                  <div className={`
-                    inline-flex p-4 rounded-2xl mx-auto transition-all duration-300
-                    ${service.color === 'green' ? 'bg-green-500/20 text-green-400' : ''}
-                    ${service.color === 'blue' ? 'bg-blue-500/20 text-blue-400' : ''}
-                    ${service.color === 'purple' ? 'bg-purple-500/20 text-purple-400' : ''}
-                    ${service.color === 'cyan' ? 'bg-cyan-500/20 text-cyan-400' : ''}
-                    ${service.color === 'orange' ? 'bg-orange-500/20 text-orange-400' : ''}
-                    ${service.color === 'emerald' ? 'bg-emerald-500/20 text-emerald-400' : ''}
-                    group-hover:scale-110
-                  `}>
-                    <service.icon className="h-8 w-8" />
-                  </div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
-                    <span className="text-xs font-medium text-gray-400 bg-gray-800/80 px-2 py-1 rounded-full">
-                      {service.tech}
-                    </span>
+              <div className="mb-6">
+                <div className="inline-flex p-3 bg-green-100 rounded-lg mb-4">
+                  <service.icon className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {service.description}
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2">
+                    <DollarSign className="h-5 w-5 text-green-600" />
+                    <span className="text-lg font-semibold text-gray-900">{service.price}</span>
                   </div>
                 </div>
-                <CardTitle className="text-xl font-bold text-white">{service.title}</CardTitle>
-              </CardHeader>
-              
-              <CardContent className="space-y-6">
-                <p className="text-gray-300 text-center leading-relaxed">{service.description}</p>
                 
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center space-x-3 text-sm">
-                      <div className={`h-2 w-2 rounded-full ${
-                        service.color === 'green' ? 'bg-green-400' : 
-                        service.color === 'blue' ? 'bg-blue-400' : 
-                        service.color === 'purple' ? 'bg-purple-400' : 
-                        service.color === 'cyan' ? 'bg-cyan-400' : 
-                        service.color === 'orange' ? 'bg-orange-400' : 
-                        'bg-emerald-400'
-                      }`}></div>
-                      <span className="text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="pt-4 border-t border-white/10 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-1 font-semibold text-white">
-                      <DollarSign className="h-4 w-4 text-green-400" />
-                      <span>{service.price}</span>
-                    </div>
-                    <div className="text-sm text-green-400 font-medium">
-                      {service.savings}
-                    </div>
-                  </div>
-                  
-                  <Button className={`w-full border-0 transition-all duration-300 ${
-                    service.color === 'green' ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700' : 
-                    service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700' : 
-                    service.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700' : 
-                    service.color === 'cyan' ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700' : 
-                    service.color === 'orange' ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700' : 
-                    'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700'
-                  } text-white font-semibold rounded-xl group`}>
-                    <span>Explore Technology</span>
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </CardContent>
+                <Button 
+                  className={service.popular ? 'btn-primary w-full group' : 'btn-secondary w-full group'}
+                >
+                  Get Quote
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
             </Card>
           ))}
         </div>
 
-        {/* Technology Showcase */}
-        <div className="glass-card p-8 rounded-3xl border-glow text-center">
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <BarChart3 className="h-8 w-8 text-green-400" />
-            <h3 className="text-2xl font-bold gradient-text">Performance Guaranteed</h3>
+        {/* Service Process */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              Our Professional Process
+            </h3>
+            <p className="text-lg text-gray-600">
+              Simple, transparent steps from consultation to completion
+            </p>
           </div>
-          
-          <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-3xl mx-auto">
-            Our advanced monitoring systems track performance in real-time. 
-            <span className="text-green-400 font-semibold"> 100% satisfaction guarantee</span> with 
-            measurable energy savings or your money back.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+
+          <div className="grid md:grid-cols-4 gap-8">
             {[
-              { value: '99.2%', label: 'System Uptime', icon: Shield },
-              { value: '24/7', label: 'AI Monitoring', icon: Activity },
-              { value: '15 Yrs', label: 'Warranty Coverage', icon: Award }
-            ].map((stat, i) => (
-              <div key={i} className="glass-card p-4 rounded-xl">
-                <stat.icon className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold gradient-text">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+              {
+                step: '01',
+                title: 'Initial Consultation',
+                description: 'Free assessment of your energy needs and goals'
+              },
+              {
+                step: '02',
+                title: 'Detailed Analysis',
+                description: 'Comprehensive audit with advanced diagnostic tools'
+              },
+              {
+                step: '03',
+                title: 'Custom Proposal',
+                description: 'Tailored solutions with clear pricing and timelines'
+              },
+              {
+                step: '04',
+                title: 'Professional Installation',
+                description: 'Expert installation with warranty and support'
+              }
+            ].map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-green-600 text-white font-bold rounded-full mb-4">
+                  {step.step}
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h4>
+                <p className="text-sm text-gray-600">{step.description}</p>
               </div>
             ))}
           </div>
-          
-          <Button size="lg" className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white border-0 px-8 py-4 text-lg font-semibold rounded-xl neon-glow">
-            Schedule Advanced Assessment
-          </Button>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-20 text-center bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-12">
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            Ready to Start Saving Energy?
+          </h3>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Contact us today for a free consultation and discover how much you can save 
+            with professional energy solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="btn-primary text-lg px-8 py-4">
+              Schedule Free Audit
+            </Button>
+            <Button variant="outline" className="btn-secondary text-lg px-8 py-4">
+              Call (416) 555-0123
+            </Button>
+          </div>
         </div>
       </div>
     </section>

@@ -11,10 +11,7 @@ import {
   Clock,
   Send,
   CheckCircle,
-  Zap,
   Calculator,
-
-  Star,
   Award
 } from 'lucide-react'
 
@@ -47,11 +44,11 @@ export function Contact() {
   }
 
   const services = [
-    'AI Energy Audit',
-    'Smart Heat Pump Installation', 
-    'Home Automation System',
+    'Energy Audit',
+    'Heat Pump Installation', 
     'Insulation Upgrade',
     'Ventilation System',
+    'Smart Home Integration',
     'Maintenance & Support',
     'Other/Consultation'
   ]
@@ -60,7 +57,7 @@ export function Contact() {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["(416) 555-0123", "Toll-free: 1-800-CAN-PURE"],
+      details: ["(416) 555-0123", "Emergency: (416) 555-HELP"],
       color: "green"
     },
     {
@@ -72,41 +69,41 @@ export function Contact() {
     {
       icon: MapPin,
       title: "Service Areas",
-      details: ["All of Ontario", "GTA, Ottawa, Hamilton"],
-      color: "cyan"
+      details: ["All of Ontario", "GTA, Ottawa, Hamilton & More"],
+      color: "purple"
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Mon-Fri: 8AM-6PM", "Sat: 9AM-4PM"],
-      color: "purple"
+      details: ["Mon-Fri: 8AM-6PM", "Sat: 9AM-4PM, Sun: Emergency"],
+      color: "orange"
     }
   ]
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 relative">
-        <div className="container relative z-10">
+      <section id="contact" className="section-padding gradient-bg">
+        <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="glass-card p-12 rounded-3xl border-glow neon-glow">
-              <div className="inline-flex p-4 rounded-full bg-green-500/20 text-green-400 mb-6">
+            <Card className="p-12 card-shadow-lg">
+              <div className="inline-flex p-4 bg-green-100 rounded-full text-green-600 mb-6">
                 <CheckCircle className="h-12 w-12" />
               </div>
-              <h2 className="text-3xl font-bold gradient-text mb-4">Thank You!</h2>
-              <p className="text-xl text-gray-300 mb-6">
-                Your energy transformation request has been received. Our AI systems are already 
-                analyzing your information for the best solutions.
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
+              <p className="text-xl text-gray-600 mb-6">
+                Your energy consultation request has been received. Our team will review 
+                your information and contact you within 2 business hours.
               </p>
-              <div className="glass-card p-4 rounded-xl border-glow mb-6">
-                <p className="text-green-400 font-medium">⚡ Expected Response Time: Within 2 hours</p>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                <p className="text-green-800 font-medium">⚡ Next Steps: Phone consultation within 2 hours</p>
               </div>
               <Button 
                 onClick={() => setIsSubmitted(false)}
-                className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white border-0 px-6 py-3 rounded-xl font-semibold"
+                className="btn-primary"
               >
                 Submit Another Request
               </Button>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -114,41 +111,37 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="container relative z-10">
-        <div className="text-center space-y-6 mb-20">
-          <div className="inline-flex items-center space-x-2 glass-card px-4 py-2 border-glow">
-            <Zap className="h-4 w-4 text-green-400" />
-            <span className="text-green-400 font-medium">Start Your Transformation</span>
-          </div>
+    <section id="contact" className="section-padding gradient-bg">
+      <div className="container">
+        <div className="text-center mb-16">
+          <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 mb-4">
+            Get Started Today
+          </Badge>
           
-          <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-            <span className="gradient-text">Get Started</span> Today
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Ready to Improve Your Home's 
+            <span className="text-gradient block">Energy Efficiency?</span>
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Ready to transform your home with cutting-edge energy technology? 
-            <span className="text-green-400 font-semibold"> Free consultation</span> with 
-            AI-powered analysis and personalized recommendations.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Contact us today for a free consultation and discover how much you can save 
+            with professional energy solutions. No obligation, just expert advice.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="glass-card p-8 rounded-3xl border-glow">
+            <Card className="p-8 card-shadow-lg">
               <div className="flex items-center space-x-3 mb-6">
-                <Calculator className="h-6 w-6 text-green-400" />
-                <h3 className="text-2xl font-bold text-white">Free Energy Assessment</h3>
-                <Badge className="glass-card border-green-500/30 text-green-400 px-2 py-1">
-                  AI-Powered
-                </Badge>
+                <Calculator className="h-6 w-6 text-green-600" />
+                <h3 className="text-2xl font-bold text-gray-900">Free Energy Assessment</h3>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
                     </label>
                     <Input
@@ -157,12 +150,12 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="glass-card bg-white/5 border-white/10 text-white placeholder-gray-400 focus:border-green-400 focus:ring-green-400/20"
+                      className="w-full"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
                     <Input
@@ -171,7 +164,7 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="glass-card bg-white/5 border-white/10 text-white placeholder-gray-400 focus:border-green-400 focus:ring-green-400/20"
+                      className="w-full"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -179,7 +172,7 @@ export function Contact() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
                     </label>
                     <Input
@@ -187,30 +180,30 @@ export function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="glass-card bg-white/5 border-white/10 text-white placeholder-gray-400 focus:border-green-400 focus:ring-green-400/20"
+                      className="w-full"
                       placeholder="(416) 555-0123"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Service Interest
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Service of Interest
                     </label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full glass-card bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-green-400 focus:ring-green-400/20 focus:outline-none"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                     >
-                      <option value="" className="bg-gray-800">Select a service</option>
+                      <option value="">Select a service</option>
                       {services.map((service, i) => (
-                        <option key={i} value={service} className="bg-gray-800">{service}</option>
+                        <option key={i} value={service}>{service}</option>
                       ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Project Details
                   </label>
                   <Textarea
@@ -218,63 +211,61 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="glass-card bg-white/5 border-white/10 text-white placeholder-gray-400 focus:border-green-400 focus:ring-green-400/20 resize-none"
+                    className="w-full resize-none"
                     placeholder="Tell us about your home, current energy challenges, and what you'd like to achieve..."
                   />
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex-1 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white border-0 px-8 py-4 text-lg font-semibold rounded-xl neon-glow transition-all duration-300 group"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        <span>Processing...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center space-x-2">
-                        <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        <span>Get Free AI Analysis</span>
-                      </div>
-                    )}
-                  </Button>
-                </div>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full text-lg py-4 group"
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center space-x-2">
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Submitting...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      <span>Get Free Consultation</span>
+                    </div>
+                  )}
+                </Button>
 
-                <div className="glass-card p-4 rounded-xl border-glow">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                   <div className="flex items-start space-x-3">
-                    <Star className="h-5 w-5 text-yellow-400 mt-0.5" />
-                    <div className="text-sm text-gray-300">
-                      <strong className="text-green-400">Free Assessment Includes:</strong> 
-                      AI-powered energy analysis, custom efficiency recommendations, 
-                      rebate qualification check, and ROI projections.
+                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <div className="text-sm text-green-800">
+                      <strong>Free Assessment Includes:</strong> 
+                      {' '}Comprehensive energy analysis, personalized recommendations, 
+                      rebate qualification review, and estimated savings projections.
                     </div>
                   </div>
                 </div>
               </form>
-            </div>
+            </Card>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-6">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="glass-card p-6 border-glow hover:neon-glow transition-all duration-300">
+              <Card key={index} className="p-6 card-shadow hover:card-shadow-lg transition-shadow">
                 <div className="flex items-start space-x-4">
-                  <div className={`p-3 rounded-xl ${
-                    info.color === 'green' ? 'bg-green-500/20 text-green-400' :
-                    info.color === 'blue' ? 'bg-blue-500/20 text-blue-400' :
-                    info.color === 'cyan' ? 'bg-cyan-500/20 text-cyan-400' :
-                    'bg-purple-500/20 text-purple-400'
+                  <div className={`p-3 rounded-lg ${
+                    info.color === 'green' ? 'bg-green-100 text-green-600' :
+                    info.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+                    info.color === 'purple' ? 'bg-purple-100 text-purple-600' :
+                    'bg-orange-100 text-orange-600'
                   }`}>
                     <info.icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-white mb-2">{info.title}</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
                     <div className="space-y-1">
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-300 text-sm">{detail}</p>
+                        <p key={i} className="text-gray-600 text-sm">{detail}</p>
                       ))}
                     </div>
                   </div>
@@ -282,41 +273,41 @@ export function Contact() {
               </Card>
             ))}
 
-            {/* Quick Stats */}
-            <div className="glass-card p-6 rounded-xl border-glow">
-              <h4 className="text-lg font-bold text-white mb-4 flex items-center space-x-2">
-                <Award className="h-5 w-5 text-yellow-400" />
+            {/* Why Choose Us */}
+            <Card className="p-6 card-shadow">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center space-x-2">
+                <Award className="h-5 w-5 text-yellow-500" />
                 <span>Why Choose CanPure?</span>
               </h4>
               <div className="space-y-3">
                 {[
                   { metric: "2-Hour Response", desc: "Fastest in Ontario" },
                   { metric: "100% Satisfaction", desc: "Guaranteed results" },
-                  { metric: "15+ Years", desc: "Industry experience" },
-                  { metric: "AI-Powered", desc: "Cutting-edge tech" }
+                  { metric: "15+ Years Experience", desc: "Proven expertise" },
+                  { metric: "Licensed & Insured", desc: "Full protection" }
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm font-semibold text-green-400">{stat.metric}</div>
-                      <div className="text-xs text-gray-400">{stat.desc}</div>
+                      <div className="text-sm font-semibold text-green-600">{stat.metric}</div>
+                      <div className="text-xs text-gray-500">{stat.desc}</div>
                     </div>
-                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
 
             {/* Emergency Contact */}
-            <div className="glass-card p-6 rounded-xl border-glow border-red-500/30">
+            <Card className="p-6 card-shadow border border-red-200">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="p-2 rounded-lg bg-red-500/20 text-red-400">
+                <div className="p-2 rounded-lg bg-red-100 text-red-600">
                   <Phone className="h-5 w-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Emergency Service</h4>
+                <h4 className="text-lg font-bold text-gray-900">Emergency Service</h4>
               </div>
-              <p className="text-sm text-gray-300 mb-2">24/7 emergency support for existing clients</p>
-              <p className="text-red-400 font-semibold">(416) 555-HELP</p>
-            </div>
+              <p className="text-sm text-gray-600 mb-2">24/7 emergency support for existing clients</p>
+              <p className="text-red-600 font-semibold">(416) 555-HELP</p>
+            </Card>
           </div>
         </div>
       </div>
